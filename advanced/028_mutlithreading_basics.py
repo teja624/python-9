@@ -14,6 +14,8 @@
 #          FIVE seconds instead of 10 Seconds
 #        * Create Threads using "_thread" module
 #        * Create Threads using "threading" module Thread class
+#        * Dynamically Create Threads, With Named Thread-IDs
+#
 #
 #========================================================================================
 #
@@ -22,7 +24,7 @@
 #                   N/A
 #
 # AUTHOR          : tinitiate.com / Venkata Bhattaram
-#                   (c) 2014
+#                   (c) 2016
 #
 # DESC            : Python Regular Expressions Patterns
 #
@@ -97,6 +99,23 @@ t1.start()
 # Create one more Thread Object using the Thread class of the threading module
 t2 = Thread(target=five_seconds_process, args=(2,))
 t2.start()
+
+
+################################################
+# 3) Create Dynamic THREADS
+################################################
+# Create a Threads List
+threads = []
+
+# Create 3 Threads
+for threadID in range(2):
+    t = Thread(target=five_seconds_process, args=(threadID+1, ))
+    t.start()
+    # threads.append(t)
+
+# join all threads
+for t in threads:
+    t.join()
 
 
 
