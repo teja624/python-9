@@ -81,19 +81,23 @@ print(l_datetime)
 # Date Comparisions and Checking
 #################################
 
+# String to Date Time
 # Convert String to Date Time in format3
 # DD-MON-YYYY HH24:MI:SS
 l_date_string1 = "2016-06-24 16:00:00"
-format3        = "%Y-%m-%d %H:%M:%S"
+format4        = "%Y-%m-%d %H:%M:%S"
 
-# Get Todays Date Time in format3
-s = today.strftime(format3)
+# Create a new time in format format4
+t1=datetime.datetime.strptime(l_date_string1, format4).date()
+
+
+# System Date Time
+# Get Todays Date Time in format4
+s = today.strftime(format4)
 
 # Convert string s back to date time in format3
-t1=datetime.datetime.strptime(s, format3).date()
+t2=datetime.datetime.strptime(s, format4).date()
 
-# Create a new time in format format3
-t2=datetime.datetime.strptime(l_date_string1, format3).date()
 
 # Comparision
 if(t1 > t2):
