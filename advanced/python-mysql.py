@@ -2,9 +2,6 @@ import pymysql
 
 conn = pymysql.connect(host='localhost', port=3306, user='root', passwd='tinitiate', db='mysql')
 
-cur = conn.cursor()
-
-
 # Clear Contents
 
 # Create A Data Base
@@ -12,6 +9,7 @@ cur = conn.cursor()
 
 # Create a table
 cursor = conn.cursor()
+
 try:
     cursor.execute("drop table ti_test");
 except:
@@ -43,16 +41,34 @@ cursor.execute("delete from ti_test where col1 = 2;")
 conn.commit()
 
 
-# Reading data from Oracle using cx_Oracle
-# reading multiple datatypes and print to screen
-cursor.execute("SELECT col1, col2, col3, col4 FROM ti_test;")
+cursor.execute("insert into ti_test values (3, 'Test3', curdate(), '333 THIS IS CLOB DATA .........');")
+cursor.execute("insert into ti_test values (4, 'Test4', curdate(), '444 THIS IS CLOB DATA .........');")
+cursor.execute("insert into ti_test values (5, 'Test5', curdate(), '555 THIS IS CLOB DATA .........');")
 
+cursor.execute("select col1,col2,col3,col4 from ti_test;")
+# Fetches a Single Row
+rowdata = cursor.fetchone()
+print(rowdata)
+
+
+# reading multiple datatypes and print to screen
+# use fetchall() to get the list of row data
+for l_col1, l_col2, l_col3, l_col4 in cursor.fetchall():
+    print("l_col1: ", l_col1)
+    print("l_col2: ", l_col2)
+    print("l_col3: ", l_col3)
+    print("l_col4: ", l_col4)
+
+# To RollBack changes
+conn.rollback()
+
+cursor.execute("select col1,col2,col3,col4 from ti_test;")
+    
 # Prints the Row count of the cursor
 print(cursor.rowcount)
 
 # Fetches a Single Row
 rowdata = cursor.fetchone()
-
 print(rowdata)
 
 # use fetchall() to get the list of row data
@@ -68,8 +84,8 @@ print("drop table ti_test")
 cursor.execute("drop table ti_test")
 
 
-print(cursor.description)
-
-
+# Close the Cursor
 cursor.close()
+
+# Close the Connection
 conn.close()
