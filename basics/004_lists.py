@@ -34,7 +34,13 @@ MyStringList  = ["A", 'b', 'Hello', "This"]
 MyList = []
 
 # Adding elements to an empty list
-MyList = set([1 ,'a'])
+# APPEND adds a Single Element
+MyList.append(1)
+print(MyList)
+
+# EXTEND adds multiple Elements
+MyList.extend([1,2,3,4])
+print(MyList)
 
 # a Compound elements based list (compound = elements with various data types, here 
 # numbers and string)
