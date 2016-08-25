@@ -104,7 +104,7 @@ def addTwoNums(func):
     if func == 'add5':
         return func(num1)
         
-    elif func == 'appSpl':
+    elif func == 'addSpl':
         return func(num1, num2):
 
 # Calling "addTwoNums" function with "add5" function 
