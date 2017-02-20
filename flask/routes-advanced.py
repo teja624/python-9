@@ -1,22 +1,22 @@
-# ---
-# title: Python Flask routing advanced concepts
-# taxonomy:
-#     category: docs
-# metadata:
-#     description: 'python flask routing advanced features'
-#     keywords: 'Python flask, routing advanced features, tutorials'
-# author: Venkata Bhattaram / tinitiate.com
-# code-alias: routing-advanced
-# slug: python/flask/routing-advanced
-# ---
+## >---
+## >title: Python Flask routing advanced concepts
+## >taxonomy:
+## >    category: docs
+## >metadata:
+## >    description: 'python flask routing advanced features'
+## >    keywords: 'Python flask, routing advanced features, tutorials'
+## >author: Venkata Bhattaram / tinitiate.com
+## >code-alias: routing-advanced
+## >slug: python/flask/routing-advanced
+## >---
 
-# ## Python Flask routing advanced features
-# * Routing is the method to display different content for every URL folder
-# * The "home page" localhost:5000, displays the default message
-# * Save the below file as `routes-advanced.py`
-# * At the command prompt run the program `python routes-advanced.py`
+## >## Python Flask routing advanced features
+## >* Routing is the method to display different content for every URL folder
+## >* The "home page" localhost:5000, displays the default message
+## >* Save the below file as `routes-advanced.py`
+## >* At the command prompt run the program `python routes-advanced.py`
 
-# ```python
+## >```python
 from flask import Flask, render_template
 app = Flask(__name__)
 
@@ -49,4 +49,4 @@ def topic():
     
 if __name__ == '__main__':
    app.run(debug = True)    
-# ```
+## >```

@@ -1,24 +1,24 @@
-# ---
-# title: Python HTTP methods
-# taxonomy:
-#     category: docs
-# metadata:
-#     description: 'Python HTTP methods'
-#     keywords: 'Python HTTP methods, tutorials'
-# author: Venkata Bhattaram / tinitiate.com
-# code-alias: HTTP-methods
-# slug: python/flask/http-methods
-# ---
+## >---
+## >title: Python HTTP methods
+## >taxonomy:
+## >    category: docs
+## >metadata:
+## >    description: 'Python HTTP methods'
+## >    keywords: 'Python HTTP methods, tutorials'
+## >author: Venkata Bhattaram / tinitiate.com
+## >code-alias: HTTP-methods
+## >slug: python/flask/http-methods
+## >---
 
-# ## Python Flask HTTP (POST - GET) methods
-# * HTTP supports TWO methods to send data to server side entities and 
-#   get response back from the same.
-# * POST submits data to the server usually from a form. 
-# * GET returns response data from server.
-# * Both POST and GET must be sent to a server side call, in this case a 
-#   script with Python Flask code.
+## >## Python Flask HTTP (POST - GET) methods
+## >* HTTP supports TWO methods to send data to server side entities and 
+## >  get response back from the same.
+## >* POST submits data to the server usually from a form. 
+## >* GET returns response data from server.
+## >* Both POST and GET must be sent to a server side call, in this case a 
+## >  script with Python Flask code.
 
-# ```python
+## >```python
 from flask import Flask, redirect, url_for, request
 app = Flask(__name__)
 
@@ -56,7 +56,10 @@ def tables():
   
         l_mul_table = ""
         for c1 in range(10):
-            l_mul_table = l_mul_table + '<br>' + str(num) + " X " + str(c1+1) + " = " + str(int(num)*(c1+1))
+            l_mul_table = l_mul_table + '<br>'
+                        + str(num) + " X " 
+                        + str(c1+1) + " = " 
+                        + str(int(num)*(c1+1))
             
         return "<h4>Welcome to the " + num + " Table page by POST method</h4> <br> " + l_mul_table
         
@@ -73,3 +76,5 @@ def tables():
 
 if __name__ == '__main__':
    app.run(debug = True)
+
+## >```

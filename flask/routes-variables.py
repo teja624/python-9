@@ -1,24 +1,24 @@
-# ---
-# title: Python Flask routing variables
-# taxonomy:
-#     category: docs
-# metadata:
-#     description: 'python flask routing variables'
-#     keywords: 'Python flask, routing variables, tutorials'
-# author: Venkata Bhattaram / tinitiate.com
-# code-alias: routing-variables
-# slug: python/flask/routing-variables
-# ---
+## >---
+## >title: Python Flask routing variables
+## >taxonomy:
+## >    category: docs
+## >metadata:
+## >    description: 'python flask routing variables'
+## >    keywords: 'Python flask, routing variables, tutorials'
+## >author: Venkata Bhattaram / tinitiate.com
+## >code-alias: routing-variables
+## >slug: python/flask/routing-variables
+## >---
 
-# ## Python Flask routing variables
-# * Routing is the method to display different content for every URL folder
-# * The "home page" localhost:5000, displays the default message
-# * It is possible to create any url path using varibles
-# * This is useful to create dynamic pages
-# * Save the below file as `routes-variables.py`
-# * At the command prompt run the program `python routes-variables.py`
+## >## Python Flask routing variables
+## >* Routing is the method to display different content for every URL folder
+## >* The "home page" localhost:5000, displays the default message
+## >* It is possible to create any url path using varibles
+## >* This is useful to create dynamic pages
+## >* Save the below file as `routes-variables.py`
+## >* At the command prompt run the program `python routes-variables.py`
 
-# ```python
+## >```python
 from flask import Flask, render_template
 app = Flask(__name__)
 
@@ -73,4 +73,4 @@ def even_or_odd(num):
     
 if __name__ == '__main__':
    app.run(debug = True)    
-# ```
+## >```
