@@ -162,9 +162,10 @@ try:
     row4 = ti_emp(4,1,'IJK',7500,datetime.utcnow())
     row5 = ti_emp(5,3,'LMN',9000,datetime.utcnow())
     row6 = ti_emp(6,2,'PQR',10000,datetime.utcnow())
-
+    row7 = ti_emp(7,2,'TIN',8000,datetime.utcnow())
+    
     # Bulk Insert all rows
-    db.session.add_all([row1, row2, row3, row4, row5, row6])
+    db.session.add_all([row1, row2, row3, row4, row5, row6, row7])
 
     # Commit the changes
     db.session.commit()
@@ -213,7 +214,7 @@ except Exception as e:
 
 ## >```
 
-
+"""
 ## >## FLASK-SQLALCHEMY Select single and All Rows from all tables
 ## >* Below is the demonstration for data retrival of single and all rows:
 ## >* Get Single Row with a whare condition using the <table-name>.query.filter_by
@@ -318,15 +319,68 @@ l_avg = db.session.query(func.avg(ti_emp.emp_sal).label('sal_avg'), ti_emp.dept_
 for row in l_avg:
     print(row.dept_id,row.sal_avg)
 
+## >```
+"""
+
+## >## FLASK-SQLALCHEMY JOIN or the INNER-JOIN
+## >* JOINs are implemented by 
+## >  <table-name-1>.query.join(<table-name-2>, tn1.column-name == tn2.column-name
+## >* The ".add_columns" are the columns from the joined tables that are to be 
+## >  displayed as part of the select.
+## >```python
+
+emp_details = ti_emp.query\
+              .join(ti_emp_sal, ti_emp.emp_id==ti_emp_sal.emp_id)\
+              .add_columns(ti_emp.emp_id, ti_emp.emp_name)
+
+# Print the data
+for row in emp_details:
+    print(row.emp_id,row.emp_name)
 
 ## >```
+
+
+## >## FLASK-SQLALCHEMY OUTER JOIN
+## >* The FULL OUTER JOIN returns all rows from the both the joined tables.
+## >* Below is the demonstration of Outer Join
+## >```python
+emp_details = ti_emp.query\
+              .outerjoin(ti_emp_sal, ti_emp.emp_id==ti_emp_sal.emp_id)\
+              .add_columns(ti_emp.emp_id, ti_emp.emp_name, ti_emp_sal.emp_sal_id)
+
+# Print the data
+for row in emp_details:
+    print(row.emp_id, row.emp_name, row.emp_sal_id)
+## >```
+
+
+## >## FLASK-SQLALCHEMY LEFT JOIN
+## >* The LEFT JOIN keyword returns all rows from the left table (table1),
+## >  with the matching rows in the right table (table2).
+## >* Below is the demonstration of Left Join
+## >```python
+emp_details = ti_emp_sal.query\
+              .outerjoin(ti_emp, ti_emp.emp_id==ti_emp_sal.emp_id)\
+              .add_columns(ti_emp.emp_id, ti_emp.emp_name, ti_emp_sal.emp_sal_id)\
+              .filter(ti_emp_sal.emp_id == None)
+
+# Print the data
+for row in emp_details:
+    print(row.emp_id, row.emp_name, row.emp_sal_id)
+## >```
+
 
 ## >## FLASK-SQLALCHEMY Select CASE statement
+## >* 
 ## >```python
+      
+l_case = case([(ti_emp_sal.sal_month == 'JAN', 'JANUARY'),
+               (ti_emp_sal.sal_month == 'FEB', 'FEBRUARY'),
+               (ti_emp_sal.sal_month == 'MAR', 'MARCH'),
+              ],
+              else_ = ti_emp_sal.sal_month)
 
-## >```
-
-## >## FLASK-SQLALCHEMY JOINs and FILTERs statement
-## >```python
-
+qry = session.query(ti_emp_sal.id, l_case)
+for _usr in qry:
+    print _usr.fullname
 ## >```
