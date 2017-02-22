@@ -44,6 +44,7 @@ from flask_sqlalchemy import SQLAlchemy
 # Import this to insert date data type into the database
 from datetime import datetime
 
+from sqlalchemy.sql import func,case, literal_column, select
 
 # Step 2.
 # Create a flask APP
@@ -320,7 +321,7 @@ for row in l_avg:
     print(row.dept_id,row.sal_avg)
 
 ## >```
-"""
+
 
 ## >## FLASK-SQLALCHEMY JOIN or the INNER-JOIN
 ## >* JOINs are implemented by 
@@ -368,19 +369,45 @@ emp_details = ti_emp_sal.query\
 for row in emp_details:
     print(row.emp_id, row.emp_name, row.emp_sal_id)
 ## >```
-
+"""
 
 ## >## FLASK-SQLALCHEMY Select CASE statement
-## >* 
+## >* CASE Statement is used to substitute the column-value to other 
+## >  literals based on a condition.
 ## >```python
+## >* Here we change the values of sal_month, if the value is 
+## >  JAN change to JANUARY, FEB to FEBRUARY ..
       
-l_case = case([(ti_emp_sal.sal_month == 'JAN', 'JANUARY'),
+row_output = ti_emp_sal.query.with_entities(case([(ti_emp_sal.sal_month == 'JAN', 'JANUARY'),
                (ti_emp_sal.sal_month == 'FEB', 'FEBRUARY'),
-               (ti_emp_sal.sal_month == 'MAR', 'MARCH'),
+               (ti_emp_sal.sal_month == 'MAR', 'MARCH')
               ],
-              else_ = ti_emp_sal.sal_month)
+              else_ = ti_emp_sal.sal_month).label('full_month_name'))
 
-qry = session.query(ti_emp_sal.id, l_case)
-for _usr in qry:
-    print _usr.fullname
+
+for l_data in row_output:
+    print (l_data.full_month_name)
+## >```
+
+
+## >## FLASK-SQLALCHEMY ORDER BY statement
+## >* ORDER BY Clause in SQL orders the output data or the data from the "select"
+## >  Clause in the ASCENDING or DESCENDING order of your choice.
+## >* In FLASK-SQLALCHEMY we can do that by using the following syntax;
+## >* **MAKE SURE .all() is AFTER ORDER BY**
+## >```python
+
+# ORDER BY ASCENDING ORDER
+all_rows_data = ti_emp.query.order_by(ti_emp.emp_name).all()
+
+for row in all_rows_data:
+    print(row.emp_id, row.emp_name, row.emp_join_date)
+
+    
+# ORDER BY DESCENDING ORDER    
+all_rows_data = ti_emp.query.order_by(ti_emp.emp_name.desc()).all()
+
+for row in all_rows_data:
+    print(row.emp_id, row.emp_name, row.emp_join_date)
+    
 ## >```
