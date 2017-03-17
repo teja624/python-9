@@ -1,7 +1,5 @@
 ## >---
 ## >title: Python Flask URL binding
-## >taxonomy:
-## >    category: docs
 ## >metadata:
 ## >    description: 'Python Flask URL binding is used to bind a URL to a function'
 ## >    keywords: 'Python flask, routing URL binding, tutorials'

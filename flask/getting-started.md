@@ -1,7 +1,5 @@
 ## >---
 ## >title: Python Flask getting started
-## >taxonomy:
-## >    category: docs
 ## >metadata:
 ## >    description: 'python flask first steps and getting started'
 ## >    keywords: 'Python flask, getting started, where to begin, example code, tutorials'

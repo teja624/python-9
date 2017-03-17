@@ -1,7 +1,5 @@
 ## >---
 ## >title: Python Flask coding basics
-## >taxonomy:
-## >    category: docs
 ## >metadata:
 ## >    description: 'python flask getting started and writing code'
 ## >    keywords: 'Python flask, getting started, where to begin, example code, tutorials'
@@ -26,7 +24,7 @@
 ## >   "Welcome to Tinitiate.com Python Flask free tutorials"
 
 ## >```python
-from flask import Flask, render_template
+from flask import Flask #, render_template
 
 app = Flask(__name__)
 

@@ -1,7 +1,5 @@
 ## >---
 ## >title: Python Flask routing variables
-## >taxonomy:
-## >    category: docs
 ## >metadata:
 ## >    description: 'python flask routing variables'
 ## >    keywords: 'Python flask, routing variables, tutorials'

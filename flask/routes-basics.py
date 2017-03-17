@@ -1,7 +1,5 @@
 ## >---
 ## >title: Python Flask routing basics
-## >taxonomy:
-## >    category: docs
 ## >metadata:
 ## >    description: 'python flask routing basics'
 ## >    keywords: 'Python flask, routing basics, tutorials'

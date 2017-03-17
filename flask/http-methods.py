@@ -1,7 +1,5 @@
 ## >---
 ## >title: Python HTTP methods
-## >taxonomy:
-## >    category: docs
 ## >metadata:
 ## >    description: 'Python HTTP methods'
 ## >    keywords: 'Python HTTP methods, tutorials'
@@ -56,9 +54,9 @@ def tables():
   
         l_mul_table = ""
         for c1 in range(10):
-            l_mul_table = l_mul_table + '<br>'
-                        + str(num) + " X " 
-                        + str(c1+1) + " = " 
+            l_mul_table = l_mul_table + '<br>'\
+                        + str(num) + " X " \
+                        + str(c1+1) + " = " \
                         + str(int(num)*(c1+1))
             
         return "<h4>Welcome to the " + num + " Table page by POST method</h4> <br> " + l_mul_table

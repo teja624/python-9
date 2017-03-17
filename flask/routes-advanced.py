@@ -1,7 +1,5 @@
 ## >---
 ## >title: Python Flask routing advanced concepts
-## >taxonomy:
-## >    category: docs
 ## >metadata:
 ## >    description: 'python flask routing advanced features'
 ## >    keywords: 'Python flask, routing advanced features, tutorials'
@@ -39,7 +37,7 @@ def topic():
 
 # The following will create another page:
 @app.route("/section")
-def topic():
+def section():
     return "<h4>Welcome to the SECTION page</h4>"
 # * Now open the localhost:5000/section
 #   This will display the following message: "Welcome to the SECTION page"
