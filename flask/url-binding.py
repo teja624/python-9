@@ -2,7 +2,7 @@
 ## >title: Python Flask URL binding
 ## >metadata:
 ## >    description: 'Python Flask URL binding is used to bind a URL to a function'
-## >    keywords: 'Python flask, routing URL binding, tutorials'
+## >    keywords: 'Python flask, redirect(), url_for() routing URL binding, tutorials'
 ## >author: Venkata Bhattaram / tinitiate.com
 ## >code-alias: URL-binding
 ## >slug: python/flask/url-binding
@@ -12,9 +12,10 @@
 ## >* URL bindings enable redirecting URL to any desired function in routing
 ## >* Advantages of this are:
 ## >* Redirect a URL to another URL
-## >  A function say the "localhost:5000/index" (index function) is called "localhost:5000/welcome"
-## >  at a later phase in the project, then its very easy to redirect all requests 
-## >  coming to localhost:5000/index to localhost:5000/welcome
+## >  A function say the "localhost:5000/index" (index function) 
+## >  is changed to "localhost:5000/welcome", at a later phase in the project, 
+## >  then its very easy to redirect all requests, coming to 
+## >  localhost:5000/index to localhost:5000/welcome
 ## >* This can be achieved using the url_for("welcome") function
 ## >* Dynamically build a URL for a specific function.
 

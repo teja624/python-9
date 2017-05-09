@@ -27,14 +27,24 @@ def section():
 # * Now open the localhost:5000/section
 #   This will display the following message: "Welcome to the SECTION page"
 
-    
+
+# Creating Multiple Routes   
 # The following will create another page:
 @app.route("/topic")
 def topic():
     return "<h4>Welcome to the TOPIC page</h4>"
 # * Now open the localhost:5000/topic
-#   This will display the following message: "Welcome to the TOPIC page"
-    
+#   This will display the following message: "Welcome to the TOPIC page"    
+
+
+# The following will create another page:
+@app.route("/newpage")
+def newpage():
+    return "<h4>Welcome to the NEW-PAGE page</h4>"
+# * Now open the localhost:5000/newpage
+#   This will display the following message: "Welcome to the NEW-PAGE page"
+
+
 
 if __name__ == '__main__':
    app.run(debug = True)    

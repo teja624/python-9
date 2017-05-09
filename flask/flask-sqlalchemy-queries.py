@@ -215,7 +215,7 @@ except Exception as e:
 
 ## >```
 
-"""
+
 ## >## FLASK-SQLALCHEMY Select single and All Rows from all tables
 ## >* Below is the demonstration for data retrival of single and all rows:
 ## >* Get Single Row with a whare condition using the <table-name>.query.filter_by
@@ -369,7 +369,7 @@ emp_details = ti_emp_sal.query\
 for row in emp_details:
     print(row.emp_id, row.emp_name, row.emp_sal_id)
 ## >```
-"""
+
 
 ## >## FLASK-SQLALCHEMY Select CASE statement
 ## >* CASE Statement is used to substitute the column-value to other 
